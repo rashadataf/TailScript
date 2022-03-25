@@ -9,8 +9,8 @@ const handle = app.getRequestHandler();
 const server = express();
 
 app.prepare().then(() => {
-    const staticImagePath = path.join(process.cwd(), "src", "images");
-    server.use("/images", express.static(staticImagePath));
+    const staticPath = path.join(process.cwd(), "src", "images");
+    server.use("/images", express.static(staticPath));
 
     server.all('*', (req, res) => {
         return handle(req, res);
