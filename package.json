@@ -2,11 +2,12 @@
   "name": "tailscript",
   "version": "1.0.0",
   "description": "a boilerplate for next.js with tailwindcss and typescript",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "nodemon src/server.ts",
+    "build": "next build && tsc --project tsconfig.server.json",
+    "start": "NODE_ENV=production node .next/production-server/server.js",
+    "lint": "next lint"
   },
   "keywords": [
     "tailwindcss",
@@ -16,16 +17,22 @@
   "author": "Rashad Ataf",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.3",
     "next": "^12.0.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@types/express": "^4.17.13",
     "@types/node": "^17.0.13",
     "@types/react": "^17.0.38",
     "autoprefixer": "^10.4.2",
+    "eslint": "8.11.0",
+    "eslint-config-next": "12.1.0",
+    "nodemon": "^2.0.15",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.18",
+    "ts-node": "^10.7.0",
     "typescript": "^4.5.5"
   }
 }
